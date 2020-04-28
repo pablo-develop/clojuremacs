@@ -8,8 +8,10 @@
 (setq doom-modeline-minor-modes t)
 (setq doom-modeline-modal-icon t)
 (setq doom-modeline-minor-modes t)
+(setq doom-modeline-buffer-file-name-style 'relative-to-project)
+
 (doom-modeline-def-modeline 'main
-  '(bar workspace-name window-number modals matches buffer-info remote-host buffer-position word-count minor-modes)
+  '(bar workspace-name window-number modals matches buffer-info buffer-position word-count minor-modes)
   '(objed-state misc-info persp-name debug indent-info process vcs checker))
 
 (require 'diminish)
@@ -79,3 +81,9 @@
 
 (after! clj-refactor
   (diminish 'clj-refactor-mode))
+
+(after! smartparens
+  (diminish 'smartparens-mode))
+
+(after! clipetty
+  (diminish 'clipetty-mode))

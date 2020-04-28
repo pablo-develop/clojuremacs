@@ -27,6 +27,13 @@
 (global-set-key (kbd "<f3>") 'integrant-halt)
 
 
+(defun show-messages-buffer ()
+  (interactive)
+  (switch-to-buffer "*Messages*"))
+
+(global-set-key (kbd "<f4>") 'show-messages-buffer)
+
+
 (map! :leader "SPC" #'execute-extended-command)
 
 (map! :leader "g s" #'magit-status)

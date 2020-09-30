@@ -1,11 +1,13 @@
 (setq doom-localleader-key ",")
 
+(global-set-key (kbd "s-(") 'sp-wrap-round)
+(global-set-key (kbd "s-[") 'sp-wrap-square)
+(global-set-key (kbd "s-{") 'sp-wrap-curly)
 
-(sp-use-paredit-bindings)
-(define-key global-map (kbd "M-\"") 'paredit-pair)
-(define-key global-map (kbd "M-[") 'paredit-wrap-square)
-(define-key global-map (kbd "M-{") 'paredit-wrap-curly)
-
+(defun integrant-dev ()
+  (interactive)
+  (message "Running (dev) ...")
+  (cider-interactive-eval "(dev)"))
 
 (defun integrant-go ()
   (interactive)
@@ -22,16 +24,17 @@
   (message "Running (integrant.repl/halt) ...")
   (cider-interactive-eval "(integrant.repl/halt)"))
 
-(global-set-key (kbd "<f1>") 'integrant-go)
-(global-set-key (kbd "<f2>") 'integrant-reset)
-(global-set-key (kbd "<f3>") 'integrant-halt)
+(global-set-key (kbd "<f1>") 'integrant-dev)
+(global-set-key (kbd "<f2>") 'integrant-go)
+(global-set-key (kbd "<f3>") 'integrant-reset)
+(global-set-key (kbd "<f4>") 'integrant-halt)
 
 
 (defun show-messages-buffer ()
   (interactive)
   (switch-to-buffer "*Messages*"))
 
-(global-set-key (kbd "<f4>") 'show-messages-buffer)
+(global-set-key (kbd "<f5>") 'show-messages-buffer)
 
 
 (map! :leader "SPC" #'execute-extended-command)
@@ -68,8 +71,8 @@
        :n  "d"      #'cider-debug-defun-at-point
        :n  "D"      #'cider-doc
        :n  "c"      #'cider-repl-clear-buffer
-       :n  "= ="    #'cider-format-buffer
-       :n  "= r"    #'cider-format-region
+       :n  ","      #'cider-format-buffer
+       :n  "="      #'cider-format-region
        :n  "t"      #'cider-test-run-focused-test
        :n  "f"      #'cider-send-function-to-repl
        :n  "e"      #'cider-send-last-sexp-to-repl
@@ -117,3 +120,5 @@
        :n  "r u a"  #'cljr-unwind-all
        :n  "r u p"  #'cljr-update-project-dependencies
        :n  "r u w"  #'cljr-unwind))
+
+(setq evil-escape-key-sequence "sd")

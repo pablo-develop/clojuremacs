@@ -20,4 +20,4 @@
 
 (remove-hook '+doom-dashboard-functions 'doom-dashboard-widget-banner)
 
-(doom/set-frame-opacity 0.95)
+; (doom/set-frame-opacity 0.92)

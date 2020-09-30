@@ -4,3 +4,5 @@
 (package! rainbow-identifiers)
 (package! clj-refactor)
 (package! diminish)
+(package! yaml-mode)
+

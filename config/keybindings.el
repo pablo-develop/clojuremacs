@@ -7,9 +7,11 @@
 (global-set-key (kbd "C-(") 'sp-backward-slurp-sexp)
 (global-set-key (kbd "C-s-)") 'sp-backward-barf-sexp)
 (global-set-key (kbd "C-s-(") 'sp-forward-barf-sexp)
+(global-set-key (kbd "C-s-(") 'sp-forward-barf-sexp)
+(global-set-key (kbd "s-;") 'paredit-meta-doublequote)
 
 (defun integrant-dev ()
-  (interactive)()
+  (interactive)
   (message "Running (dev) ...")
   (cider-interactive-eval "(dev)"))
 

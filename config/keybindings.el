@@ -3,9 +3,13 @@
 (global-set-key (kbd "s-(") 'sp-wrap-round)
 (global-set-key (kbd "s-[") 'sp-wrap-square)
 (global-set-key (kbd "s-{") 'sp-wrap-curly)
+(global-set-key (kbd "C-)") 'sp-forward-slurp-sexp)
+(global-set-key (kbd "C-(") 'sp-backward-slurp-sexp)
+(global-set-key (kbd "C-s-)") 'sp-backward-barf-sexp)
+(global-set-key (kbd "C-s-(") 'sp-forward-barf-sexp)
 
 (defun integrant-dev ()
-  (interactive)
+  (interactive)()
   (message "Running (dev) ...")
   (cider-interactive-eval "(dev)"))
 
